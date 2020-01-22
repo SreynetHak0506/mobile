@@ -14,7 +14,7 @@ class _UserState extends State<User> {
     http.Response response = await http.get(url);
      datas = json.decode(response.body) ;
     setState(() {
-     users  =datas ['data'];
+     users  =datas['data'];
     });
   }
   @override
@@ -42,11 +42,10 @@ class _UserState extends State<User> {
                     backgroundImage: NetworkImage(users[i]["avatar"]),
                 ),
                 SizedBox(width: 20.0,),
-                Text("${users[i]["last_name"]}",
+                Text(users[i]["last_name"],
                 style: TextStyle(color: Colors.deepOrange, fontSize: 20.0),
                 ),
               ],
-              
             ),
        ), 
            
