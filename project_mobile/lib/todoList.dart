@@ -45,6 +45,7 @@ final todo = await showDialog<Todos>(
             FlatButton(
               child: Text("Cancel"),
                onPressed: () {
+                  todoController.clear();
                Navigator.of(context).pop(); 
               },    
             ),
@@ -53,8 +54,13 @@ final todo = await showDialog<Todos>(
               onPressed: () {
               setState(() {
               final todo = new Todos(title: todoController.value.text);
+              if(todoController.value.text==""){
+                print("");
+              }else{
+                todos.add(todo);
+              }
                   todoController.clear();
-                  todos.add(todo);
+                  // todos.add(todo);
                   todoController.clear();
                   Navigator.of(context).pop();
                 });
